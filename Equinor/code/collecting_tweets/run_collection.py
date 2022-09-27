@@ -17,14 +17,14 @@ if __name__ =="__main__":
 
     scraper = sntwitter.TwitterSearchScraper
 
-    with open('../data/input_data/Input_Twitter_handles') as f:
+    with open('../data/input_data/input_twitter_handles.txt') as f:
         handles = f.read().splitlines()
 
-    with open('../../data/input_data/geopolitics_handles.txt') as f:
-        handles.extend(f.read().splitlines())
+#    with open('../../data/input_data/geopolitics_handles.txt') as f:
+#        handles.extend(f.read().splitlines())
 
-    with open('./data/input_data/markets_handles') as f:
-        handles.extend(f.read().splitlines())
+#    with open('./data/input_data/markets_handles') as f:
+#        handles.extend(f.read().splitlines())
 
     results = []
     pool = Pool(processes=len(handles))
