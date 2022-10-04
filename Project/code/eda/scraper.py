@@ -19,7 +19,10 @@ scraper = sntwitter.TwitterSearchScraper
 def get_tweetlist(handle: str):
     tweetlist = []
     for idx, tweet in enumerate(scraper(f'from:{handle} since:{start_date} until:{end_date}').get_items()):
-        tweetlist.append({"id": str(tweet.id), "user": str(tweet.user.username), "DateTime": str(tweet.date), "tweet": str(tweet.content),
+        tweetlist.append({"id": str(tweet.id),
+        "user_username": str(tweet.user.username),
+        "DateTime": str(tweet.date),
+        "tweet": str(tweet.content),
         "user_location": str(tweet.user.location),
         "place_fullname": str(tweet.place.fullName),
         "place_name": str(tweet.place.name),
@@ -27,7 +30,8 @@ def get_tweetlist(handle: str):
         "place_country": str(tweet.place.country),
         "place_countrycode": str(tweet.place.countryCode),
         "coordinates_longitude": str(tweet.coordinates.longitude),
-        "coordinates_latitude": str(tweet.latitude)})
+        "coordinates_latitude": str(tweet.latitude),
+        "user": str(tweet.user)})
 
     print(f"{handle} completed!")
     return tweetlist
